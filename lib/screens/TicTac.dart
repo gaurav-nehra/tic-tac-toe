@@ -77,6 +77,22 @@ class _TicTacState extends State<TicTac> {
     if(arr[2][0] == arr[1][1] && arr[2][0] == arr[0][2] && arr[2][0] != null) {
       _result = '${arr[2][0]} WON in Diagonal';
     }
+
+    //for draw
+    if(_moveCount >= 9) {
+      bool draw = false;
+      for(int m = 0; m < 3; m++) {
+        for(int n = 0; n < 3; n++) {
+          if(arr[m][n] != null) {
+            draw = true;
+            break;
+          }
+        }
+      }
+      if(draw) {
+        _result = 'Draw';
+      }
+    }
   }
 
   // to reset game
